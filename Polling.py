@@ -92,6 +92,7 @@ def decrypt(key):
     for i in range(len(m)):
         x.append((m[i] * mod_inverse(sqm(kE[i], key, p), p)) % p)
     dec = decode(x, 168)
+    watchdog.pingeringlong("Decrypting stage");
     return dec
 
 
@@ -106,6 +107,7 @@ def main():
     print("The Private Key is {}.".format(key))
     cleartext = decrypt(key)
     print("The decrypted text is '{}'".format(cleartext))
+    watchdog.pingeringlong("Seperating main stage");
 
 
 if __name__ == "__main__":
